@@ -70,4 +70,4 @@ jobs:
       - run:
           name: Run PHP Unit tests
           command:
-            vendor/bin/phpunit --coverage-clover build/coverage/xml tests
+            vendor/bin/phpunit
