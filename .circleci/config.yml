@@ -68,6 +68,6 @@ jobs:
          background: true
 
       - run:
-          name: Run PHP Unit tests and Codeclimate Coverage
+          name: Run PHP Unit tests
           command:
-            vendor/bin/phpunit
+            vendor/bin/phpunit --coverage-clover build/coverage/xml tests
