@@ -9,7 +9,7 @@
   </p>
 </p>
 
-# [VotePen.com](https://votepen.com) [![CircleCI](https://img.shields.io/circleci/project/github/VotePen/VotePen.svg)](https://circleci.com/gh/VotePen/VotePen/tree/master) [![Maintainability](https://api.codeclimate.com/v1/badges/c18908dfc0a781b1d07d/maintainability)](https://codeclimate.com/github/VotePen/VotePen/maintainability) [![David](https://img.shields.io/david/VotePen/VotePen.svg)](https://david-dm.org/VotePen/VotePen)
+# [VotePen.com](https://votepen.com) [![CircleCI](https://img.shields.io/circleci/project/github/VotePen/VotePen.svg)](https://circleci.com/gh/VotePen/VotePen/tree/master) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c12e05422b3423ab89629d8a1f35750)](https://www.codacy.com/app/Votepen/VotePen?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=VotePen/VotePen&amp;utm_campaign=Badge_Grade) [![David](https://img.shields.io/david/VotePen/VotePen.svg)](https://david-dm.org/VotePen/VotePen)
 
 [VotePen](https://votepen.com) is a place to Share, upvote, and discuss the best of the internet. To get a quick taste of what VotePen is written with please check our [credits page](https://votepen.com/credits).
 
