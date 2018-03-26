@@ -18,6 +18,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use App\Rules\CurrentPassword;
 
 class ChannelController extends Controller
 {
@@ -168,7 +169,7 @@ class ChannelController extends Controller
             'name'        => $request->name,
             'description' => $request->description,
             'nsfw'        => $request->input('nsfw', 0),
-            'avatar'      => 'https://cdn.jsdelivr.net/npm/cdn-votepen@1.0.0/imgs/channel-avatar.png',
+            'avatar'      => '/imgs/channel-avatar.png',
             'color'       => 'Blue',
         ]);
 
@@ -288,19 +289,17 @@ class ChannelController extends Controller
     }
 
     /**
-     * Destroys the channel model and all its related models. Currently only VotePen administrators have such permission.
+     * Destroys the channel record and all its related records. Currently only VotePen administrators have such permission.
      *
      * @param Channel $channel
+     * 
+     * @return response 
      */
     public function destroy(Channel $channel)
     {
-        abort_unless($this->mustBeVotePenAdministrator(), 403);
-
-        if (!confirmPassword(request('password'))) {
-            session()->flash('warning', "Incorrect Password. What kind of an administrator doesn't remember his password? ");
-
-            return back();
-        }
+        request()->validate([
+            'password' => ['required', new CurrentPassword], 
+        ]);
 
         // remove all channel's data stored on the database
         Submission::where('channel_id', $channel->id)->forceDelete();
@@ -315,8 +314,6 @@ class ChannelController extends Controller
         // clear cache
         Cache::flush();
 
-        session()->flash('status', 'Channel and all its records has been deleted. ');
-
-        return redirect('/backend/channels');
+        return res(200, 'Channel deleted successfully.');
     }
 }

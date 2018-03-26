@@ -1,6 +1,7 @@
 // for administrators only
 import AdminPanel from './components/AdminPanel.vue';
 import AdminPanelSuggestedChannels from './components/AdminPanelSuggestedChannels.vue';
+import AdminPanelInactiveChannels from './components/AdminPanelInactiveChannels.vue';
 import AdminPanelSubmissions from './components/AdminPanelSubmissions.vue';
 import AdminPanelComments from './components/AdminPanelComments.vue';
 import AdminPanelDashboard from './components/AdminPanelDashboard.vue';
@@ -98,9 +99,14 @@ const routes = [
                 name: 'admin-panel-comments'
             },
             {
-                path: 'suggested-channels',
+                path: 'channels/suggested',
                 component: AdminPanelSuggestedChannels,
                 name: 'admin-panel-suggested-channels'
+            },
+            {
+                path: 'channels/inactive',
+                component: AdminPanelInactiveChannels,
+                name: 'admin-panel-inactive-channels'
             }
         ]
     },
@@ -264,7 +270,7 @@ const scrollPositions = Object.create(null);
 /**
  * Fills the <title> tag with the right value before navigating to the
  * new route.First it checks the title in the meta, if it exists it
- * sets it to that, otherwise sets it to the default (votepen).
+ * sets it to that, otherwise sets it to the default (VotePen).
  */
 router.beforeEach((to, from, next) => {
     // scroll behavior
