@@ -56,7 +56,7 @@
 			</div>
 		</div>
 
-		<el-alert type="warning" title="You're using Pusher for broadcasting." v-if="!isUsingEcho"></el-alert>
+		<el-alert type="warning" title="We use Pusher for Broadcasting" v-if="!isUsingEcho"></el-alert>
 
 		<div class="flex-space">
 			<h2>
