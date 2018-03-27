@@ -45,7 +45,7 @@ class BanUsersTest extends TestCase
             'username' => $to_ban_user->username, 
             'channel_id' => $channel->id,
             'duration' => 1,
-            'description' => 'he did something very bad :)'
+            'description' => 'This user has some suspicious activity in platform!'
         ])->assertStatus(201);
     }
 
