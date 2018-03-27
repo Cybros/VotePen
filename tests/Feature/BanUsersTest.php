@@ -48,7 +48,7 @@ class BanUsersTest extends TestCase
             'description' => 'he did something very bad :)'
         ])->assertStatus(201);
     }
-    
+
     /** @test */
     public function a_channel_moderator_can_unban_a_user()
     {

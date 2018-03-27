@@ -72,7 +72,7 @@ class ChannelRemovalTest extends TestCase
     }
 
     /** @test */
-    public function votepen_adminstrator_can_fetch_inactive_channels()
+    public function votepen_administrator_can_fetch_inactive_channels()
     {
         $this->json('GET', '/api/admin/channels/inactive')
             ->assertStatus(200)
