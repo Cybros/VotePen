@@ -34,7 +34,7 @@
 				</template>
 			</el-table-column>
 
-			<el-table-column label="Comments"
+			<el-table-column label="subscribers - comments - submissions"
 			                 align="center">
 				<template slot-scope="scope">
 					<el-tag type="info"
@@ -117,8 +117,7 @@ export default {
                                 message: error.response.data.errors.password[0]
                             });
                         });
-                })
-                .catch(() => {});
+                });
         }
     }
 };

@@ -31,6 +31,7 @@ import router from './routes';
 import Announcement from './components/Announcement.vue';
 import Tour from './components/Tour';
 import MobileVisitorWarning from './components/MobileVisitorWarning';
+import BanUserModal from './components/BanUserModal';
 
 /**
  * This is our event bus, which is used for event dispatching. The base is that we create an empty
@@ -44,7 +45,7 @@ import MobileVisitorWarning from './components/MobileVisitorWarning';
 Vue.prototype.$eventHub = new Vue();
 
 /**
- * The very serious and important vue instance!!! This is what gives power to votepen's
+ * The very serious and important vue instance!!! This is what gives power to VotePen's
  * front-end. Try to love it, maintain it, appriciate it and maybe even more! This
  * also plays a role in switching states and maintaining the Store.
  */
@@ -71,6 +72,7 @@ window.app = new Vue({
         PhotoViewer,
         EmbedViewer,
         LeftSidebar,
+        BanUserModal, 
         SearchModal,
         Preferences,
         NewChannel,
@@ -209,7 +211,7 @@ window.app = new Vue({
 
             Push.create(data.title, {
                 body: data.body,
-                icon: data.icon ? data.icon : 'https://cdn.jsdelivr.net/npm/cdn-votepen@1.0.0/imgs/v-logo.png',
+                icon: data.icon ? data.icon : '/imgs/v-logo.png',
                 timeout: 5000,
                 onClick: function() {
                     if (data.url == 'new-message') {
