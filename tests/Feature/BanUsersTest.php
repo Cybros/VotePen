@@ -85,9 +85,9 @@ class BanUsersTest extends TestCase
     }
 
     /** @test */
-    public function a_voten_administrator_can_ban_users_and_delete_their_posts_and_comments()
+    public function a_votepen_administrator_can_ban_users_and_delete_their_posts_and_comments()
     {
-        $this->signInViaPassportAsVotenAdministrator();
+        $this->signInViaPassportAsVotePenAdministrator();
 
         $user = create(User::class);
         create(Submission::class, ['user_id' => $user->id]);
