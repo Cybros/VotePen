@@ -77,8 +77,8 @@
                     Twitter
                 </a>
 
-                <a href="https://github.com/VotePen/VotePen">
-                    Github
+                <a href="https://status.votepen.com">
+                    Status
                 </a>
 
                 <a href="https://blog.votepen.com">
