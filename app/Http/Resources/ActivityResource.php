@@ -37,6 +37,6 @@ class ActivityResource extends JsonResource
             return null;
         }
 
-        return 'https://lipis.github.io/flag-icon-css/flags/4x3/' . strtolower($short_name) . '.svg';
+        return 'https://cdn.jsdelivr.net/gh/lipis/flag-icon-css@3.1.0/flags/4x3/' . strtolower($short_name) . '.svg';
     }
 }
