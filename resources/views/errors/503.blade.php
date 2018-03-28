@@ -77,12 +77,12 @@
                     Twitter
                 </a>
 
-                <a href="https://status.votepen.com">
-                    Status
-                </a>
-
                 <a href="https://blog.votepen.com">
                     Blog
+                </a>
+
+                <a href="https://status.votepen.com">
+                    Status
                 </a>
             </div>
         </div>
