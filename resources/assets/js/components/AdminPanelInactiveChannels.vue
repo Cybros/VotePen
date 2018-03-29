@@ -2,7 +2,7 @@
 	<div id="submissions"
 	     class="home-submissions">
 		<h2 class="v-bold">
-			Inactive Channels({{ items.length }}):
+			Inactive Channels({{ items.length }})
 		</h2>
 
 		<el-table :data="items"
