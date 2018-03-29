@@ -7,7 +7,7 @@ $factory->define(\App\Channel::class, function (Faker $faker) {
         'name' => str_slug($faker->name, ''),
         'description' => $faker->paragraph(),
         'nsfw' => 0,
-        'avatar' => 'https://cdn.jsdelivr.net/npm/cdn-votepen@1.0.3/imgs/channel-avatar.png',
+        'avatar' => 'https://cdn.jsdelivr.net/npm/@votepen/cdn@1.0.0/imgs/channel-avatar.png',
         'color' => 'Blue',
     ];
 });
