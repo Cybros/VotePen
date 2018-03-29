@@ -60,7 +60,7 @@
 
 		<div class="flex-space">
 			<h2>
-				Latest Activities:
+				Latest Activities
 			</h2>
 
 			<div>
