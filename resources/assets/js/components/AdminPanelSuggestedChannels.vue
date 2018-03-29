@@ -2,7 +2,7 @@
     <div id="submissions" class="home-submissions">
         <div class="flex-space user-select">
             <h2 class="v-bold">
-                Suggested Channels({{ list.length }})
+                Suggested Channels: ({{ list.length }})
             </h2>
 
             <el-button round type="primary" @click="form = !form" size="medium">
