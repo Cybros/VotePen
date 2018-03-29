@@ -34,7 +34,7 @@
 				</template>
 			</el-table-column>
 
-			<el-table-column label="subscribers - comments - submissions"
+			<el-table-column label="Comments"
 			                 align="center">
 				<template slot-scope="scope">
 					<el-tag type="info"
