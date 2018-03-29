@@ -14,17 +14,17 @@
 
 			<div class="flex-center">
 				<a href="/" class="margin-right-1">
-					<el-button round size="small" type="text">
+					<el-button round size="medium" type="text">
 						Home
 					</el-button>
 				</a>
 
 				<a href="/register" class="margin-right-1">
-					<el-button round size="small" type="text">Sign up</el-button>
+					<el-button round size="medium" type="text">Sign up</el-button>
 				</a>
 
 				<a href="/login" class="margin-right-1">
-					<el-button round size="small" type="text">Login</el-button>
+					<el-button round size="medium" type="text">Login</el-button>
 				</a>
 			</div>
 		</div>
