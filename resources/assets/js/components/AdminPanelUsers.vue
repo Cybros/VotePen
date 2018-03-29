@@ -3,7 +3,7 @@
 	     class="home-submissions">
 		<div class="flex-space">
 			<h2>
-				Latest Registered Users:
+				Latest Registered Users
 			</h2>
 
 			<div>
