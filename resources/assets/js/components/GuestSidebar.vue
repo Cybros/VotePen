@@ -67,7 +67,7 @@
 					<el-button round size="mini"
 					           @click="logMeIn"
 					           :loading="login.loading"
-					           :disabled="!login.username.trim() || !login.password.trim()"
+					           :disabled="validated == 1"
 					           type="success">
 						Login
 					</el-button>
