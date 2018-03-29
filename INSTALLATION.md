@@ -34,6 +34,9 @@ php artisan passport:install
 npm install
 npm run production
 ```
+### Nginx Steps
+
+Soon
 
 ### Supervisor Steps
 
