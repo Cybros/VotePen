@@ -30,7 +30,7 @@
                 <div class="item">
                     <h3>
                         <a href="#" rel="nofollow">
-                            <img src="https://cdn.jsdelivr.net/npm/cdn-votepen@1.0.2/landing/about/share.png" alt="Share">
+                            <img src="https://cdn.jsdelivr.net/npm/@votepen/cdn@1.0.0/landing/about/share.png" alt="Share">
                         </a>
                     </h3>
                     <br>
@@ -45,7 +45,7 @@
                 <div class="item">
                     <h3>
                         <a href="#" rel="nofollow">
-                            <img src="https://cdn.jsdelivr.net/npm/cdn-votepen@1.0.2/landing/about/vote.png" alt="Vote">
+                            <img src="https://cdn.jsdelivr.net/npm/@votepen/cdn@1.0.0/landing/about/vote.png" alt="Vote">
                         </a>
                     </h3>
                     <br>
@@ -60,7 +60,7 @@
                 <div class="item">
                     <h3>
                         <a href="#" rel="nofollow">
-                            <img src="https://cdn.jsdelivr.net/npm/cdn-votepen@1.0.2/landing/about/discuss.png" alt="Discuss">
+                            <img src="https://cdn.jsdelivr.net/npm/@votepen/cdn@1.0.0/landing/about/discuss.png" alt="Discuss">
                         </a>
                     </h3>
                     <br>
