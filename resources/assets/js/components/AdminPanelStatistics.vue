@@ -3,7 +3,7 @@
 	     class="home-submissions">
 		<div class="flex-space">
 			<h2>
-				Statistics:
+				Statistics
 			</h2>
 
 			<div>
