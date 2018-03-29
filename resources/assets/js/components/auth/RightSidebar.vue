@@ -72,7 +72,7 @@
 								             class="item">Privacy policy</router-link>
 							</li>
 							<li>
-								<a href="https://blog.votepen.com"
+								<a href="https://votepen.tumblr.com"
 								   class="item"
 								   target="_blank">Blog</a>
 							</li>
