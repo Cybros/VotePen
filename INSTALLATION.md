@@ -36,7 +36,7 @@ npm run production
 ```
 ### Nginx Steps
 
-Soon
+Coming Soon
 
 ### Supervisor Steps
 
