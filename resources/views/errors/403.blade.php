@@ -76,7 +76,7 @@
             Twitter
         </a>
 
-        <a href="https://blog.votepen.com">
+        <a href="https://votepen.tumblr.com">
             Blog
         </a>
 
