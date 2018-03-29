@@ -4,7 +4,6 @@ Desired Feature:
 
 ### For Bug Reports
 
-* BookStack Version
 * PHP Version:
 * MySQL Version:
 
