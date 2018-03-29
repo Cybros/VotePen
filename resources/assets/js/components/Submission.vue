@@ -163,26 +163,11 @@ export default {
          * @return void
          */
         destroy() {
-            
-            this.$confirm(`Are you sure want to delete this submission?`, 'Delete', {
-                confirmButtonText: 'Yes',
-                cancelButtonText: 'No',
-                type: 'warning'
-            })
-                .then(() => {
-                    Vue.clearLS();
+            this.hidden = true;
 
-                    	axios.delete(`/submissions/${this.list.id}`).catch(() => {
-                			this.hidden = false;
-            			})
-                        .catch(() => {
-                            this.$message({
-                                message: 'Something went wrong.',
-                                type: 'error'
-                            });
-                        });
-                })
-                .catch(() => {});
+            axios.delete(`/submissions/${this.list.id}`).catch(() => {
+                this.hidden = false;
+            });
         },
 
         /**
