@@ -4,8 +4,8 @@ Desired Feature:
 
 ### For Bug Reports
 
-* PHP Version:
-* MySQL Version:
+* PHP Version: 
+* MySQL Version: 
 
 ##### Expected Behavior
 
