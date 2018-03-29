@@ -15,7 +15,7 @@ return [
     'name'             => 'VotePen',
     'title'            => 'Stay Updated!',
     'description'      => 'Share, upvote, and discuss the best of what is happening on the internet.',
-    'logo'             => 'https://cdn.jsdelivr.net/npm/cdn-votepen@1.0.3/imgs/votepen.svg',
+    'logo'             => 'https://cdn.jsdelivr.net/npm/@votepen/cdn@1.0.0/imgs/votepen.svg',
     'twitter_username' => '@VotePen',
     'twitter-url'      => 'https://twitter.com/VotePen',
     'blog_url'         => 'https://votepen.tumblr.com',
