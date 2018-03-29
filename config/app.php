@@ -19,7 +19,7 @@ return [
     'twitter_username' => '@VotePen',
     'twitter-url'      => 'https://twitter.com/VotePen',
     'blog_url'         => 'https://votepen.tumblr.com',
-    'cdn_url'          => 'https://cdn.jsdelivr.net/npm/cdn-votepen@1.0.3',
+    'cdn_url'          => 'https://cdn.jsdelivr.net/npm/@votepen/cdn@1.0.0',
 
     /*
     |--------------------------------------------------------------------------
