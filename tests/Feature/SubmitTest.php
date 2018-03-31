@@ -28,8 +28,8 @@ class SubmitTest extends TestCase
         $this->json('POST', '/api/submissions', [
             'type' => 'link',
             'channel_name' => $channel->name,
-            'title' => 'Google',
-            'url' => 'https://google.com',
+            'title' => 'Twitter',
+            'url' => 'https://twitter.com',
         ])
             ->assertStatus(200);
     }
@@ -42,8 +42,8 @@ class SubmitTest extends TestCase
         $res = $this->json('POST', '/api/submissions', [
             'type' => 'link',
             'channel_name' => $channel->name,
-            'title' => 'Google',
-            'url' => 'google.com',
+            'title' => 'Twitter',
+            'url' => 'twitter.com',
         ])
             ->assertStatus(422)
             ->assertJson([
@@ -64,8 +64,8 @@ class SubmitTest extends TestCase
         $res = $this->json('POST', '/api/submissions', [
             'type' => 'link',
             'channel_name' => $channel->name,
-            'title' => 'Google',
-            'url' => 'https://without-dns-record.google.com',
+            'title' => 'Twitter',
+            'url' => 'https://without-dns-record.twitter.com',
         ])
             ->assertStatus(422)
             ->assertJson([
