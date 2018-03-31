@@ -25,3 +25,23 @@ $factory->define(\App\Submission::class, function (Faker $faker) {
         'channel_name' => $channel->name,
     ];
 });
+
+$factory->state(\App\Submission::class, 'link', function (Faker $faker) {
+    return [
+        'type' => 'link',
+        'title' => 'An awesome platform', 
+
+        'data' => [
+            'url'           => 'https://votepen.com',
+            'title'         => 'An awesome platform',
+            'description'   => null,
+            'type'          => 'link',
+            'embed'         => null,
+            'img'           => null,
+            'thumbnail'     => null,
+            'providerName'  => null,
+            'publishedTime' => null,
+            'domain'        => domain('https://votepen.com'),
+        ]
+    ];
+});
