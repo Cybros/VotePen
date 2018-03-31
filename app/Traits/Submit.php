@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Embed\Embed;
 
 trait Submit
-{
+{    
     /**
      * Creates a unique slug for the submission.
      *
@@ -80,7 +80,7 @@ trait Submit
                 'type'          => $info->type,
                 'embed'         => $info->embed,
                 'img'           => $this->downloadImg($info->image),
-                'thumbnail'     => $this->createThumbnail($info->image, 1200, null, "submissions/link/thumbs"),
+                'thumbnail'     => $this->createThumbnail($info->image, 600, null, "submissions/link/thumbs"),
                 'providerName'  => $info->providerName,
                 'publishedTime' => $info->publishedTime,
                 'domain'        => domain($request->url),

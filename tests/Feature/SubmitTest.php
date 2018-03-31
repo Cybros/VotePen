@@ -1,144 +1,80 @@
 <?php
 
-namespace App\Traits;
+namespace Tests\Feature;
 
-use App\Gif;
-use App\Photo;
-use App\Submission;
-use DB;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
-use Embed\Embed;
+use App\Channel;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+use Illuminate\Support\Facades\Storage;
 
-trait Submit
-{    
-    /**
-     * Creates a unique slug for the submission.
-     *
-     * @param string $title
-     *
-     * @return string
-     */
-    protected function slug($title)
+class SubmitTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function setUp()
     {
-        $slug = str_slug($title);
-        $submissions = Submission::withTrashed()->where('slug', 'like', $slug.'%')->get();
-
-        if (!$submissions->contains('slug', $slug)) {
-            return $slug;
-        }
-
-        $slugNumber = 1;
-        $newSlug = $slug;
-
-        while ($submissions->contains('slug', $newSlug)) {
-            $newSlug = $slug.'-'.$slugNumber;
-            $slugNumber++;
-        }
-
-        return $newSlug;
+        parent::setUp(); 
+        
+        $this->signInViaPassport();
     }
 
-    /**
-     * Up-votes on submission.
-     *
-     * @param collection $user
-     * @param int        $submission_id
-     *
-     * @return void
-     */
-    protected function firstVote($submission_id)
-    {
-        $user = Auth::user();
+    /** @test */
+    public function can_post_a_link()
+    {   
+        Storage::fake(config('filesystems.default'));
 
-        try {
-            $user->submissionUpvotes()->attach($submission_id, ['ip_address' => getRequestIpAddress()]);
+        $channel = create(Channel::class);
 
-            $upvotes = $this->submissionUpvotesIds($user->id);
-
-            array_push($upvotes, $submission_id);
-
-            $this->updateSubmissionUpvotesIds($user->id, $upvotes);
-        } catch (\Exception $exception) {}
+        $this->json('POST', '/api/submissions', [
+            'type' => 'link',
+            'channel_name' => $channel->name,
+            'title' => 'Google',
+            'url' => 'https://google.com',
+        ])
+            ->assertStatus(200);
     }
 
-    /**
-     * @param  Request instance
-     *
-     * @return json data
-     */
-    protected function linkSubmission(Request $request)
+    /** @test */
+    public function url_must_be_a_valid_address()
     {
-        try {
-            $info = Embed::create($request->url);
+        $channel = create(Channel::class);
 
-            return [
-                'url'           => $info->url,
-                'title'         => $info->title,
-                'description'   => $info->description,
-                'type'          => $info->type,
-                'embed'         => $info->embed,
-                'img'           => $this->downloadImg($info->image),
-                'thumbnail'     => $this->createThumbnail($info->image, 1200, null, "submissions/link/thumbs"),
-                'providerName'  => $info->providerName,
-                'publishedTime' => $info->publishedTime,
-                'domain'        => domain($request->url),
-            ];
-        } catch (\Exception $e) {
-            return [
-                'url'           => $request->url,
-                'title'         => $request->title,
-                'description'   => null,
-                'type'          => 'link',
-                'embed'         => null,
-                'img'           => null,
-                'thumbnail'     => null,
-                'providerName'  => null,
-                'publishedTime' => null,
-                'domain'        => domain($request->url),
-            ];
-        }
+        $res = $this->json('POST', '/api/submissions', [
+            'type' => 'link',
+            'channel_name' => $channel->name,
+            'title' => 'Google',
+            'url' => 'google.com',
+        ])
+            ->assertStatus(422)
+            ->assertJson([
+                "message" => "The given data was invalid.",
+                "errors" => [
+                    "url" => [
+                        "The url format is invalid.",
+                    ],
+                ],
+            ]);
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return array
-     */
-    protected function imgSubmission(Request $request)
+    /** @test */
+    public function url_must_be_active()
     {
-        $photo = Photo::where('id', $request->input('photos_id')[0])->firstOrFail();
+        $channel = create(Channel::class);
 
-        return [
-            'path'           => $photo->path,
-            'thumbnail_path' => $photo->thumbnail_path,
-            'album'          => (count($request->input('photos_id')) > 1),
-        ];
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return array
-     */
-    protected function gifSubmission(Request $request)
-    {
-        $gif = Gif::findOrFail($request->gif_id);
-
-        return [
-            'mp4_path'       => $gif->mp4_path,
-            'thumbnail_path' => $gif->thumbnail_path,
-        ];
-    }
-
-    /**
-     * @param Request $request $request
-     *
-     * @return array
-     */
-    protected function textSubmission(Request $request)
-    {
-        return array_only($request->all(), ['text']);
+        $res = $this->json('POST', '/api/submissions', [
+            'type' => 'link',
+            'channel_name' => $channel->name,
+            'title' => 'Google',
+            'url' => 'https://without-dns-record.google.com',
+        ])
+            ->assertStatus(422)
+            ->assertJson([
+                "message" => "The given data was invalid.",
+                "errors" => [
+                    "url" => [
+                        "The url is not a valid URL.",
+                    ],
+                ],
+            ]);
     }
 }
